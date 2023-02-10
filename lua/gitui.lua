@@ -58,7 +58,8 @@ M.open = function()
   local height = vim.api.nvim_get_option("lines")
   local win_height = math.ceil(height * (M.config.window.options.height / 100))
   local win_width = math.ceil(width * (M.config.window.options.width / 100))
-  local row = math.ceil((height - win_height) / 2)
+  local cmd_height = vim.api.nvim_get_option("cmdheight")
+  local row = math.floor((height - win_height - cmd_height - 1) / 2)
   local col = math.ceil((width - win_width) / 2)
 
   local window_options = {
