@@ -33,6 +33,9 @@ M.config = {
       border = "rounded",
     },
   },
+  -- On close callback
+  on_exit = function()
+  end,
 }
 
 M.setup = function(overrides)
@@ -81,6 +84,7 @@ M.open = function()
       -- vim.cmd([[silent! :q]])
       vim.api.nvim_buf_delete(bufnr, { force = true })
       M.state.is_open = false
+      M.config.on_exit()
     end,
   })
   vim.cmd([[startinsert!]])
