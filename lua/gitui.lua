@@ -66,6 +66,8 @@ M.open = function()
   local col = math.ceil((width - win_width) / 2)
 
   local window_options = {
+    title = "GitUI",
+    title_pos = "center",
     style = "minimal",
     relative = "editor",
     width = win_width,
